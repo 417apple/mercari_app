@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        User::factory(User::class)->create([
+        User::factory()->create([
             'name' => '椎名林檎',
             'email' => 'test@test.test',
             'email_verified_at' => now(),
