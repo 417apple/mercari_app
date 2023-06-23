@@ -5,6 +5,7 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use Illuminate\Support\Facades\Auth;
 
 class Header extends Component
 {
@@ -21,6 +22,8 @@ class Header extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.header');
+        $user = Auth::user();
+        return view('components.header')
+        ->with('user', $user);
     }
 }
