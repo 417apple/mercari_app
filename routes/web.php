@@ -2,8 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
 use App\Http\Controllers\Mypage\ProfileController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,13 +22,14 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'mypage'], function () {
 
-        Route::get('edit/profile', [ProfileController::class, 'showProfileEditForm'])->name('mypage.edit-profile');
+        Route::get('edit-profile', [ProfileController::class, 'showProfileEditForm'])->name('mypage.edit-profile');
+        Route::post('edit-profile', [ProfileController::class, 'editProfile'])->name('mypage.edit-profile');
 
     });
 
