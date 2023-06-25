@@ -23,14 +23,15 @@ library.add(
 
 dom.watch();
 
+// 画像が変更された時に、定義した関数が実行される
 document
     .querySelector(".image-picker input")
     .addEventListener("change", (e) => {
-        const input = e.target;
+        const inputTag = e.target;
         const reader = new FileReader();
         reader.onload = (e) => {
-            input.closest(".image-picker").querySelector("img").src =
+            inputTag.closest(".image-picker").querySelector("img").src =
                 e.target.result;
         };
-        reader.readAsDataURL(input.files[0]);
+        reader.readAsDataURL(inputTag.files[0]);
     });
