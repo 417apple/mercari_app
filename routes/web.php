@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Mypage\ProfileController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SellController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::post('edit-profile', [ProfileController::class, 'editProfile'])->name('mypage.edit-profile');
 
     });
+
+    Route::get('sell', [SellController::class, 'showSellForm'])->name('sell');
 
 });
