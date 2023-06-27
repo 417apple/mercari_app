@@ -33,9 +33,8 @@ return new class extends Migration
 
         Schema::create('item_conditions', function (Blueprint $table) {
             $table->id();
-
-            // ここにカラムを追加していく
-
+            $table->string('name');
+            $table->integer('sort_no');
             $table->timestamps();
         });
 
