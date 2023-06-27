@@ -64,10 +64,14 @@
                     <div class="form-group mt-3">
                         <label for="category">カテゴリ</label>
                         <select name="category" class="custom-select form-control @error('category') is-invalid @enderror">
-                            @foreach ($conditions as $condition)
-                                <option value="{{$condition->id}}" {{ old('condition') == $condition->id ? 'selected' : '' }} >
-                                    {{$condition->name}}
-                                </option>
+                            @foreach ($categories as $category)
+                                <optgroup label="{{$category->name}}">
+                                    @foreach($category->subCategories as $sub)
+                                        <option value="{{$sub->id}}" {{old('category') == $sub->id ? 'selected' : ''}}>
+                                            {{$sub->name}}
+                                        </option>
+                                    @endforeach
+                                </optgroup>
                             @endforeach
                         </select>
                         @error('category')
@@ -81,6 +85,11 @@
                     <div class="form-group mt-3">
                         <label for="condition">商品の状態</label>
                         <select name="condition" class="custom-select form-control @error('condition') is-invalid @enderror">
+                            @foreach ($conditions as $condition)
+                                <option value="{{$condition->id}}" {{ old('condition') == $condition->id ? 'selected' : '' }} >
+                                    {{$condition->name}}
+                                </option>
+                            @endforeach
                         </select>
                         @error('condition')
                         <span class="invalid-feedback" role="alert">
