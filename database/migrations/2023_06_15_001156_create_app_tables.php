@@ -14,18 +14,16 @@ return new class extends Migration
 
         Schema::create('main_categories', function (Blueprint $table) {
             $table->id();
-
-            // ここにカラムを追加していく
-
+            $table->string('name');
+            $table->integer('sort_no');
             $table->timestamps();
         });
 
         Schema::create('sub_categories', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('main_category_id');
-
-            // ここにカラムを追加していく
-
+            $table->string('name');
+            $table->integer('sort_no');
             $table->timestamps();
 
             $table->foreign('main_category_id')->references('id')->on('main_categories');
