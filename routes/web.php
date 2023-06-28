@@ -35,5 +35,6 @@ Route::group(['middleware' => 'auth'], function () {
     });
 
     Route::get('sell', [SellController::class, 'showSellForm'])->name('sell');
+    Route::post('sell', [SellController::class, 'sellItem'])->name('sell');
 
 });
