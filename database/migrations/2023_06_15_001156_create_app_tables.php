@@ -46,6 +46,7 @@ return new class extends Migration
             $table->text('description');
             $table->unsignedInteger('price');
             $table->string('state');
+            $table->string('image_file_name');
             $table->timestamps();
 
             $table->foreign('seller_id')->references('id')->on('users');
