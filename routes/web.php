@@ -21,7 +21,7 @@ use App\Http\Controllers\ItemsController;
 
 Route::get('', [ItemsController::class,'showItems'])->name('top');
 Auth::routes();
-Route::get('items/{item}', function () {return "商品詳細";})->name('item');
+Route::get('items/{item}', [ItemsController::class,'showItemDetail'])->name('item');
 
 Route::group(['middleware' => 'auth'], function () {
 
@@ -35,5 +35,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('sell', [SellController::class, 'showSellForm'])->name('sell');
     Route::post('sell', [SellController::class, 'sellItem'])->name('sell');
+    Route::get('items/{item}/buy', function () { return "商品購入画面";})->name('item.buy');
 
 });
