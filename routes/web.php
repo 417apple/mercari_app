@@ -6,6 +6,7 @@ use App\Http\Controllers\Mypage\ProfileController;
 use App\Http\Controllers\Mypage\SoldItemsController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SellController;
+use App\Http\Controllers\ItemsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,13 +19,8 @@ use App\Http\Controllers\SellController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('top');
-
+Route::get('', [ItemsController::class,'showItems'])->name('top');
 Auth::routes();
-
-Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('items/{item}', function () {return "商品詳細";})->name('item');
 
 Route::group(['middleware' => 'auth'], function () {

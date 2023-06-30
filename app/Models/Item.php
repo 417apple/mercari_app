@@ -23,4 +23,9 @@ class Item extends Model
         return $this->belongsTo(SubCategory::class);
     }
 
+    public function getIsStateBoughtAttribute()
+     {
+         return $this->state === self::STATE_BOUGHT;
+     }
+
 }
