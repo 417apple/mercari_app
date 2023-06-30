@@ -12,4 +12,15 @@ class Item extends Model
     const STATE_SELLING = 'selling';
     // 購入済み
     const STATE_BOUGHT = 'bought';
+
+    public function getIsStateSellingAttribute()
+    {
+        return $this->state === self::STATE_SELLING;
+    }
+
+    public function subCategory()
+    {
+        return $this->belongsTo(SubCategory::class);
+    }
+
 }
