@@ -46,6 +46,7 @@ return new class extends Migration
             $table->text('description');
             $table->unsignedInteger('price');
             $table->string('state');
+            $table->timestamp('bought_at')->nullable();
             $table->string('image_file_name');
             $table->timestamps();
 

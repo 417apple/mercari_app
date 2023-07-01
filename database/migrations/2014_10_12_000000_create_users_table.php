@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('avatar_file_name')->nullable();
             $table->rememberToken();
             $table->timestamps();
+            $table->unsignedInteger('sales')->default(0);
         });
     }
 
