@@ -4,9 +4,10 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Mypage\ProfileController;
 use App\Http\Controllers\Mypage\SoldItemsController;
-use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SellController;
 use App\Http\Controllers\ItemsController;
+use App\Http\Controllers\Mypage\BoughtItemsController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,7 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('edit-profile', [ProfileController::class, 'showProfileEditForm'])->name('mypage.edit-profile');
         Route::post('edit-profile', [ProfileController::class, 'editProfile'])->name('mypage.edit-profile');
         Route::get('sold-items', [SoldItemsController::class, 'showSoldItems'])->name('mypage.sold-items');
+        Route::get('bought-items',[BoughtItemsController::class, 'showBoughtItems'])->name('mypage.bought-items');
 
     });
 

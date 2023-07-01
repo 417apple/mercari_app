@@ -13,6 +13,10 @@ class Item extends Model
     // 購入済み
     const STATE_BOUGHT = 'bought';
 
+    protected $casts = [
+        'bought_at' => 'datetime',
+    ];
+
     public function getIsStateSellingAttribute()
     {
         return $this->state === self::STATE_SELLING;
