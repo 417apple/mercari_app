@@ -35,6 +35,5 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('sell', [SellController::class, 'showSellForm'])->name('sell');
     Route::post('sell', [SellController::class, 'sellItem'])->name('sell');
-    Route::get('items/{item}/buy', function () { return "商品購入画面";})->name('item.buy');
-
+    Route::get('items/{item}/buy', [ItemsController::class, 'showBuyItemForm'])->name('item.buy');
 });
