@@ -1,7 +1,8 @@
 <?php
 
 namespace App\View\Components;
-
+use App\Models\MainCategory;
+use Illuminate\Support\Facades\Request;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -23,7 +24,20 @@ class Header extends Component
     public function render(): View|Closure|string
     {
         $user = Auth::user();
+        $categories = MainCategory::query()
+             ->with(['subCategories' => function ($query) {
+                $query->orderBy('sort_no');
+            }])->orderBy('sort_no')->get();
+
+
+        $defaults = [
+            'category' => Request::input('category', ''),
+            'keyword'  => Request::input('keyword', ''),
+        ];
+
         return view('components.header')
-        ->with('user', $user);
+        ->with('user', $user)
+        ->with('categories', $categories)
+        ->with('defaults', $defaults);
     }
 }
