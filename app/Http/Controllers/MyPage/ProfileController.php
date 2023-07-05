@@ -45,13 +45,13 @@ class ProfileController extends Controller
           Image::make($file)->fit(200, 200)->save($tempPath);
 
         // ちゃんとしたところに画像ファイルを保存
-          $filePath = Storage::disk('public')
-              ->putFile('avatars', new File($tempPath));
+          $filePath = Storage::disk('public')->put('avatars', new File($tempPath));
+        //  ファイル名だけ返す
           return basename($filePath);
       }
 
       /**
-      * 一時的なファイルパスを返します。一時的にファイルを保存する場所を作る
+      * 一時的にファイルを保存する場所を作ってそのファイルパスを返す
       *
       * @return string ファイルパス
       */
