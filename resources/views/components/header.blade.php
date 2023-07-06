@@ -27,13 +27,6 @@
                         </div>
                     </div>
                 </form>
-                         <div class="input-group-append">
-                             <button type="submit" class="btn btn-outline-dark">
-                                 <i class="fas fa-search"></i>
-                             </button>
-                         </div>
-                     </div>
-                 </form>
                 @guest
                     {{-- 非ログイン --}}
                     <li class="nav-item">
