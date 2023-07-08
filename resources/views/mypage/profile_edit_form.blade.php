@@ -24,7 +24,7 @@
                 <form method="POST" action="{{ route('mypage.edit-profile') }}" class="p-5" enctype="multipart/form-data">
                     @csrf
                     <span class="avatar-form image-picker">
-                        <input type="file" name="avatar" class="d-none" accept="image/png,image/jpeg,image/gif" id="avatar" />
+                        <input type="file" name="avatar" id="avatar" class="d-none" accept="image/png,image/jpeg,image/gif"/>
                         <label for="avatar" class="d-inline-block">
                             @if (!empty($user->avatar_file_name))
                                 <img src="/storage/avatars/{{$user->avatar_file_name}}" class="rounded-circle" style="object-fit: cover; width: 200px; height: 200px;">
@@ -35,7 +35,7 @@
                     </span>
                     <div class="form-group mt-3">
                         <label for="name">名前</label>
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name', $user->name) }}" required autocomplete="name" autofocus>
+                        <input type="text" name="name" value="{{ old('name', $user->name) }}" id="name" class="form-control @error('name') is-invalid @enderror" required autocomplete="name" autofocus>
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
