@@ -11,7 +11,6 @@ return new class extends Migration
      */
     public function up(): void
     {
-
         Schema::create('main_categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
@@ -25,7 +24,7 @@ return new class extends Migration
             $table->string('name');
             $table->integer('sort_no');
             $table->timestamps();
-
+            // 外部キー制約を付与
             $table->foreign('main_category_id')->references('id')->on('main_categories');
         });
 
@@ -49,7 +48,7 @@ return new class extends Migration
             $table->timestamp('bought_at')->nullable();
             $table->string('image_file_name');
             $table->timestamps();
-
+            // 外部キー制約を付与
             $table->foreign('seller_id')->references('id')->on('users');
             $table->foreign('buyer_id')->references('id')->on('users');
             $table->foreign('sub_category_id')->references('id')->on('sub_categories');
