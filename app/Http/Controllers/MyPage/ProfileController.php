@@ -38,7 +38,7 @@ class ProfileController extends Controller
     private function saveAvatar(UploadedFile $file): string
     {
         $tempPath = $this->makeTempPath(); // "/private/var/folders/tj/793635yj40g23pznx9r9ppxw0000gn/T/phpmMDbDb"
-        Image::make($file)->fit(200, 200)->save($tempPath); // 一時的な場所(tempPath)を指定し、画像ファイルを保存
+        Image::make($file)->fit(200, 200)->save($tempPath); // 一時ファイルに保存
         $filePath = Storage::disk('public')->put('avatars', new File($tempPath)); // ちゃんとしたところに画像ファイルを保存 "avatars/riuJLAQ87P30nZoeS1N6y2QEpzGYkiXE8DOMV8OW.png"
         return basename($filePath);  // ファイル名だけ返す "riuJLAQ87P30nZoeS1N6y2QEpzGYkiXE8DOMV8OW.png"
     }

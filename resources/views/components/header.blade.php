@@ -6,20 +6,20 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav ml-auto">
-            <form class="form-inline" method="GET" action="{{ route('top') }}">
-                     <div class="input-group">
-                         <div class="input-group-prepend">
-                             <select class="custom-select" name="category">
-                                 <option value="">全て</option>
-                                 @foreach ($categories as $category)
-                                 <option value="main:{{$category->id}}" class="font-weight-bold" {{ $defaults['category'] == "main:" . $category->id ? 'selected' : ''}}>{{$category->name}}</option>
-                                     @foreach ($category->subCategories as $sub)
-                                        <option value="sub:{{$sub->id}}" {{ $defaults['category'] == "sub:" . $sub->id ? 'selected' : ''}}>　{{$sub->name}}</option>
-                                     @endforeach
-                                 @endforeach
-                             </select>
-                         </div>
-                         <input type="text" name="keyword" class="form-control" value="{{$defaults['keyword']}}" aria-label="Text input with dropdown button" placeholder="キーワード検索">
+                <form class="form-inline" method="GET" action="{{ route('top') }}">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <select class="custom-select" name="category">
+                                <option value="">全て</option>
+                                @foreach ($categories as $category)
+                                    <option value="main:{{$category->id}}" class="font-weight-bold" {{ $defaults['category'] == "main:" . $category->id ? 'selected' : ''}}>{{$category->name}}</option>
+                                        @foreach ($category->subCategories as $sub)
+                                            <option value="sub:{{$sub->id}}" {{ $defaults['category'] == "sub:" . $sub->id ? 'selected' : ''}}>　{{$sub->name}}</option>
+                                        @endforeach
+                                @endforeach
+                            </select>
+                        </div>
+                        <input type="text" name="keyword" class="form-control" value="{{$defaults['keyword']}}" aria-label="Text input with dropdown button" placeholder="キーワード検索">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-outline-dark">
                                 <i class="fas fa-search"></i>
@@ -78,9 +78,8 @@
                                 <i class="far fa-address-card text-left" style="width: 30px"></i>プロフィール編集
                             </a>
 
-                            <a class="dropdown-item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
+                            <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
                                 <i class="fas fa-sign-out-alt text-left" style="width: 30px"></i>ログアウト
                             </a>
 
