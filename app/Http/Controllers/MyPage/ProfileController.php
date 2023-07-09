@@ -37,10 +37,10 @@ class ProfileController extends Controller
     */
     private function saveAvatar(UploadedFile $file): string
     {
-        $tempPath = $this->makeTempPath();
+        $tempPath = $this->makeTempPath(); // "/private/var/folders/tj/793635yj40g23pznx9r9ppxw0000gn/T/phpmMDbDb"
         Image::make($file)->fit(200, 200)->save($tempPath); // 一時的な場所(tempPath)を指定し、画像ファイルを保存
-        $filePath = Storage::disk('public')->put('avatars', new File($tempPath)); // ちゃんとしたところに画像ファイルを保存
-        return basename($filePath);  //  ファイル名だけ返す
+        $filePath = Storage::disk('public')->put('avatars', new File($tempPath)); // ちゃんとしたところに画像ファイルを保存 "avatars/riuJLAQ87P30nZoeS1N6y2QEpzGYkiXE8DOMV8OW.png"
+        return basename($filePath);  // ファイル名だけ返す "riuJLAQ87P30nZoeS1N6y2QEpzGYkiXE8DOMV8OW.png"
     }
 
     /**
@@ -51,7 +51,7 @@ class ProfileController extends Controller
     private function makeTempPath(): string
     {
         $tmp_fp = tmpfile();
-        $meta   = stream_get_meta_data($tmp_fp);
-        return $meta["uri"];
+        $meta   = stream_get_meta_data($tmp_fp); // $tmp_fpを配列に変換してる感じ
+        return $meta["uri"]; // "配列である$metaから/private/var/folders/tj/793635yj40g23pznx9r9ppxw0000gn/T/phpMNL6OA"のようなパスを抽出
     }
 }
