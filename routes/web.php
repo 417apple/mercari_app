@@ -27,12 +27,10 @@ Route::get('items/{item}', [ItemsController::class,'showItemDetail'])->name('ite
 Route::group(['middleware' => 'auth'], function () {
 
     Route::group(['prefix' => 'mypage'], function () {
-
         Route::get('edit-profile', [ProfileController::class, 'showProfileEditForm'])->name('mypage.edit-profile');
         Route::post('edit-profile', [ProfileController::class, 'editProfile'])->name('mypage.edit-profile');
         Route::get('sold-items', [SoldItemsController::class, 'showSoldItems'])->name('mypage.sold-items');
         Route::get('bought-items',[BoughtItemsController::class, 'showBoughtItems'])->name('mypage.bought-items');
-
     });
 
     Route::get('sell', [SellController::class, 'showSellForm'])->name('sell');
