@@ -18,16 +18,13 @@
 
         <div class="row">
             <div class="col-8 offset-2 bg-white">
-
                 <div class="font-weight-bold text-center border-bottom pb-3 pt-3" style="font-size: 24px">商品を出品する</div>
-
                 <form method="POST" action="{{ route('sell') }}" class="p-5" enctype="multipart/form-data">
                     @csrf
-
                     {{-- 商品画像 --}}
                     <div>商品画像</div>
                     <span class="item-image-form image-picker">
-                        <input type="file" name="item-image" class="d-none" accept="image/png,image/jpeg,image/gif" id="item-image" />
+                        <input type="file" name="item-image"  id="item-image" class="d-none" accept="image/png,image/jpeg,image/gif"/>
                         <label for="item-image" class="d-inline-block" role="button">
                             <img style="object-fit: cover; width: 300px; height: 300px;">
                         </label>
@@ -41,7 +38,7 @@
                     {{-- 商品名 --}}
                     <div class="form-group mt-3">
                         <label for="name">商品名</label>
-                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                        <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" id="name" required autocomplete="name" autofocus>
                         @error('name')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -52,7 +49,7 @@
                     {{-- 商品の説明 --}}
                     <div class="form-group mt-3">
                         <label for="description">商品の説明</label>
-                        <textarea id="description" class="form-control @error('description') is-invalid @enderror" name="description" required autocomplete="description" autofocus>{{ old('description') }}</textarea>
+                        <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" required autocomplete="description" autofocus>{{ old('description') }}</textarea>
                         @error('description')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
@@ -67,7 +64,7 @@
                             @foreach ($categories as $category)
                                 <optgroup label="{{$category->name}}">
                                     @foreach($category->subCategories as $sub)
-                                        <option value="{{$sub->id}}" {{old('category') == $sub->id ? 'selected' : ''}}>
+                                        <option value="{{$sub->id}}" {{ old('category') == $sub->id ? 'selected' : '' }}>
                                             {{$sub->name}}
                                         </option>
                                     @endforeach
@@ -101,7 +98,7 @@
                     {{-- 販売価格 --}}
                     <div class="form-group mt-3">
                         <label for="price">販売価格</label>
-                        <input id="price" type="number" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ old('price') }}" required autocomplete="price" autofocus>
+                        <input type="number" name="price" value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror" id="price" required autocomplete="price" autofocus>
                         @error('price')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>
