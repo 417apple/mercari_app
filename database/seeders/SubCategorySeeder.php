@@ -33,51 +33,63 @@ class SubCategorySeeder extends Seeder
              'main_category_id' => 1,
         ]);
         SubCategory::factory()->create([
-            'id'               => 4,
-            'name'             => 'トップス',
-            'sort_no'          => 4,
-            'main_category_id' => 2,
+            'id'                => 4,
+             'name'             => 'スカート',
+             'sort_no'          => 4,
+             'main_category_id' => 1,
         ]);
         SubCategory::factory()->create([
             'id'               => 5,
-            'name'             => 'ジャケット/アウター',
+            'name'             => 'トップス',
             'sort_no'          => 5,
             'main_category_id' => 2,
         ]);
         SubCategory::factory()->create([
             'id'               => 6,
-            'name'             => '靴',
+            'name'             => 'ジャケット/アウター',
             'sort_no'          => 6,
             'main_category_id' => 2,
         ]);
         SubCategory::factory()->create([
             'id'               => 7,
-            'name'             => 'ベビー服（男の子用）',
+            'name'             => 'パンツ',
             'sort_no'          => 7,
-            'main_category_id' => 3,
+            'main_category_id' => 2,
         ]);
         SubCategory::factory()->create([
             'id'               => 8,
-            'name'             => 'ベビー服（女の子用）',
+            'name'             => '靴',
             'sort_no'          => 8,
-            'main_category_id' => 3,
+            'main_category_id' => 2,
         ]);
         SubCategory::factory()->create([
             'id'               => 9,
-            'name'             => 'キッズ服（男の子用）',
+            'name'             => 'ベビー服（男の子用）',
             'sort_no'          => 9,
             'main_category_id' => 3,
         ]);
         SubCategory::factory()->create([
             'id'               => 10,
-            'name'             => 'キッズ服（女の子用）',
+            'name'             => 'ベビー服（女の子用）',
             'sort_no'          => 10,
             'main_category_id' => 3,
         ]);
         SubCategory::factory()->create([
             'id'               => 11,
-            'name'             => 'その他',
+            'name'             => 'キッズ服（男の子用）',
             'sort_no'          => 11,
+            'main_category_id' => 3,
+        ]);
+        SubCategory::factory()->create([
+            'id'               => 12,
+            'name'             => 'キッズ服（女の子用）',
+            'sort_no'          => 12,
+            'main_category_id' => 3,
+        ]);
+        SubCategory::factory()->create([
+            'id'               => 13,
+            'name'             => 'その他',
+            'sort_no'          => 13,
             'main_category_id' => 4,
         ]);
     }
