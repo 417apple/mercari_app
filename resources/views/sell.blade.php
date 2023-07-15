@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
-@section('title')
-    商品出品
-@endsection
+@section('title')商品出品@endsection
 
 @section('content')
     <div class="container">
@@ -21,7 +19,6 @@
                 <div class="font-weight-bold text-center border-bottom pb-3 pt-3" style="font-size: 24px">商品を出品する</div>
                 <form method="POST" action="{{ route('sell') }}" class="p-5" enctype="multipart/form-data">
                     @csrf
-                    {{-- 商品画像 --}}
                     <div>商品画像</div>
                     <span class="item-image-form image-picker">
                         <input type="file" name="item-image"  id="item-image" class="d-none" accept="image/png,image/jpeg,image/gif"/>
@@ -34,8 +31,6 @@
                             <strong>{{ $message }}</strong>
                         </div>
                     @enderror
-
-                    {{-- 商品名 --}}
                     <div class="form-group mt-3">
                         <label for="name">商品名</label>
                         <input type="text" name="name" value="{{ old('name') }}" class="form-control @error('name') is-invalid @enderror" id="name" required autocomplete="name" autofocus>
@@ -45,8 +40,6 @@
                         </span>
                         @enderror
                     </div>
-
-                    {{-- 商品の説明 --}}
                     <div class="form-group mt-3">
                         <label for="description">商品の説明</label>
                         <textarea name="description" id="description" class="form-control @error('description') is-invalid @enderror" required autocomplete="description" autofocus>{{ old('description') }}</textarea>
@@ -56,8 +49,6 @@
                         </span>
                         @enderror
                     </div>
-
-                    {{-- カテゴリ --}}
                     <div class="form-group mt-3">
                         <label for="category">カテゴリ</label>
                         <select name="category" class="custom-select form-control @error('category') is-invalid @enderror">
@@ -77,8 +68,6 @@
                         </span>
                         @enderror
                     </div>
-
-                    {{-- 商品の状態 --}}
                     <div class="form-group mt-3">
                         <label for="condition">商品の状態</label>
                         <select name="condition" class="custom-select form-control @error('condition') is-invalid @enderror">
@@ -94,8 +83,6 @@
                         </span>
                         @enderror
                     </div>
-
-                    {{-- 販売価格 --}}
                     <div class="form-group mt-3">
                         <label for="price">販売価格</label>
                         <input type="number" name="price" value="{{ old('price') }}" class="form-control @error('price') is-invalid @enderror" id="price" required autocomplete="price" autofocus>
